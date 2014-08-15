@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="Content-Style-type" content="text/css"/>
+    <title>招聘中心</title>
+
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Common/Css/Head&Foot.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Common/Css/Position/style.css"/>
+</head>
+<body>
+<!-- header -->
+<include file="./Application/Home/View/Head.html"/>
+<!-- content -->
+<div id="content">
+    <div class="container">
+        <div class="aside_left">
+            <div class="breadCrumb">
+                <img src="__PUBLIC__/Common/Image/Article/breadCrumb.gif" alt=""/>
+                <h4>当前位置 > <a>招聘中心</a></h4>
+            </div>
+
+            <div class="article">
+                <div class="nav_title">
+                    <h4>招聘中心</h4>
+                </div>
+                <div class="article_content">
+                    <volist name="jobs" id="job">
+                        <div class="article_zpzw">
+                            <div class="content_aside_left">
+                                <p class="content_title">{$job.AR_title}</p>
+                                <p class="content_row">
+                                    招聘人数：<span class="content_row_content">{$job.AR_numPerson}</span>人
+                                    学历要求：<span class="content_row_content">{$job.AR_education}</span>
+                                </p>
+                                <p class="content_row">
+                                    年龄要求：<span class="content_row_content">{$job.AR_age}</span>
+                                    专业要求：<span class="content_row_content">{$job.AR_major}</span>
+                                </p>
+                                <p class="content_row_1">
+                                    <?php echo(strip_tags($job["AR_content"]));?>
+                                </p>
+                            </div>
+                            <div class="content_aside_right">
+                                <p class="content_jzrq">
+                                    截止日期：<span>{$job.AR_deadTime}</span>
+                                </p>
+                                <p class="content_ljsq">
+                                    <a href="__APP__/Home/Position/positionApply?id={$job.AR_id}">
+                                        <img src="__PUBLIC__/Common/Image/Position/btn_ljsq.jpg">
+                                    </a>
+                                </p>
+                            </div>
+                            <div style="clear: both"></div>
+                        </div>
+                    </volist>
+                </div>
+            </div>
+        </div>
+        <div class="aside_right">
+            <h3>招聘流程</h3>
+            <img src="__PUBLIC__/Common/Image/Position/5.jpg" alt=""/>
+        </div>
+    </div>
+</div>
+<!-- footer -->
+<include file="./Application/Home/View/Foot.html"/>
+</body>
+</html>

@@ -1,0 +1,127 @@
+body{
+    font: 12px Verdana, Arial, sans-serif, "Times New Roman", "宋体";
+}
+#content{
+    width: 100%;
+}
+.container{
+    width:980px;
+    margin: 0 auto;
+    padding: 0;
+}
+/*==== left =====*/
+.aside_left{
+    width: 630px;
+    float: left;
+}
+.breadCrumb{
+    margin: 15px 0 15px 0;
+}
+.breadCrumb img{
+    float: left;
+    margin: 7px 5px 0 3px;
+}
+.breadCrumb h4{
+    margin-bottom: 10px;
+}
+.article{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.article .nav_title{
+    width: 100%;
+    background: url("../../Image/Article/nav_title_bg.gif") repeat-x;
+    height: 37px;
+    font-size: 14px;
+    border: solid rgb(205,205,205) 1px;
+}
+.article .nav_title h4{
+    color: #000000;
+    padding: 9px 0 0 10px;
+    margin: 0;
+}
+
+/*======== content =========*/
+.article_content{
+    width: 630px;
+    min-height: 299px;
+    border: solid rgb(205,205,205) 1px;
+    background-color: rgb(245,245,245);
+    margin-bottom: 20px;
+}
+.article_zpzw{
+    width: 630px;
+    border-bottom: solid #c0c0c0 1px;
+}
+.content_aside_left{
+    float: left;
+    width: 430px;
+    margin-left: 20px;
+}
+.content_title{
+    height: 24px;
+    line-height: 24px;
+    color: #407dd7;
+    font-weight: bold;
+    font-size: 14px;
+}
+.content_row_content{
+    height: 22px;
+    line-height: 22px;
+    color: #313131;
+    margin-right: 30px;
+}
+.content_row{
+    height: 22px;
+    line-height: 22px;
+    color: #9f9f9f;
+}
+.content_row_1{
+    height: auto;
+    overflow: hidden;
+    line-height: 18px;
+    color: #626262;
+    padding-bottom: 10px;
+}
+
+.content_aside_right{
+    float: left;
+    width: 150px;
+}
+.content_jzrq{
+    text-align: center;
+    height: 24px;
+    line-height: 24px;
+    color: #959595;
+    margin-bottom: 10px;
+}
+.content_ljsq{
+    text-align: center;
+}
+/*==== right =====*/
+.aside_right{
+    float: left;
+    width: 290px;
+    margin-left: 57px;
+    border: solid #c0c0c0 1px;
+    margin-bottom: 10px;
+    margin-top: 44px;
+}
+    .aside_right h3{
+        font-family: "Times New Roman", Times, serif;
+        font-size: 27px;
+        font-weight: normal;
+        color: #fff;
+        background: rgb(59,124,216);
+        width: 290px;
+        height: 40px;
+        line-height: 46px;
+        text-indent: 21px;
+        text-shadow: 0 0 4px #ca591c;
+        position: relative;
+        z-index: 2;
+    }
+    .aside_right img{
+        overflow: hidden;
+    }

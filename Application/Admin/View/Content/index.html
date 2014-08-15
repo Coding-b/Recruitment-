@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>后台管理</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="__PUBLIC__/Common/Css/Head&Foot.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="__PUBLIC__/Bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Bootstrap/css/fileinput.min.css">
+
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!-- header -->
+<include file="./Application/Admin/View/Head.html"/>
+<!-- content -->
+<div class="container" style="width: 980px;padding: 0">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            横幅管理
+        </div>
+        <div class="panel-content row" style="padding-top: 10px">
+            <volist name="slides" id="slide">
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="{$slide.SL_addr}" order="{$slide.SL_order}" alt="..." slideId="{$slide.SL_id}" onclick="slideOnclick(this)">
+                    </div>
+                </div>
+            </volist>
+        </div>
+        <div id="myModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3><span class="glyphicon glyphicon-inbox"> 横幅设置</span></h3>
+                    </div>
+                    <form role="form" action="__APP__/Admin/Content/modifySlide" method="post" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <input id="slideImage" name="slideImage[]" type="file">
+                            </div>
+                            <div class="form-group">
+                                <label for="order">排序</label>
+                                <input type="number" class="form-control" id="order" name="SL_order" placeholder="请输入图片序号">
+                            </div>
+                            <input type="hidden" name="SL_id" id="SL_id">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">修改</button>
+                            <button type="button" data-dismiss="modal" class="btn btn-default">取消</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading" style="padding-bottom: 40px">
+            <h5 class="pull-left">文章管理</h5>
+            <a type="button" class="btn btn-success pull-right" href="__APP__/Admin/Content/add">添加</a>
+        </div>
+        <table class="table">
+            <tr>
+                <th>序号</th>
+                <th>所属分类</th>
+                <th>名称</th>
+                <th>操作</th>
+            </tr>
+            <volist name="articles" id="vo">
+                <tr>
+                    <td>{$vo.AR_id}</td>
+                    <td>{$vo.CG_name}</td>
+                    <td>{$vo.AR_title}</td>
+                    <td>
+                        <a class="btn btn-primary" style="margin-right: 20px"  href="__APP__/Admin/Content/modify?AR_id={$vo.AR_id}">修改</a>
+                        <a class="btn btn-danger" href="__APP__/Admin/Content/delete?AR_id={$vo.AR_id}" onclick="return confirm('你确定要删除这篇文章么？');">删除</a>
+                    </td>
+                </tr>
+            </volist>
+        </table>
+        <div class="panel-footer">
+            <ul class="pager" style="margin: 0">
+                <li><a href="#">上一页</a></li>
+                <li><a href="#">下一页</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- footer -->
+<include file="./Application/Admin/View/Foot.html"/>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="__PUBLIC__/jquery-1.11.1.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="__PUBLIC__/Bootstrap/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/Bootstrap/js/fileinput.min.js"></script>
+<script type="text/javascript">
+    function slideOnclick(slide){
+        $('#myModal').modal('show');
+        document.getElementById('order').setAttribute("value",slide.getAttribute('order'))
+        document.getElementById('SL_id').setAttribute("value",slide.getAttribute('slideId'))
+    }
+    // with plugin options
+    $("#slideImage").fileinput({'showUpload':false, 'previewFileType':'any' , 'previewFileType':'image'});
+</script>
+</body>
+</html>

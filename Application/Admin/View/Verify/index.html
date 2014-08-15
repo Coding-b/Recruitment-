@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>后台管理</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="__PUBLIC__/Common/Css/Head&Foot.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="__PUBLIC__/Bootstrap/css/bootstrap.min.css">
+
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!-- header -->
+<include file="./Application/Admin/View/Head.html"/>
+<!-- content -->
+<div class="container" style="width: 980px;padding: 0">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            审核管理
+        </div>
+        <div class="panel-body" style="margin: 0;padding-top: 5px;padding-bottom: 5px">
+            <p>显示的是等待您审核的事项！</p>
+        </div>
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="active"><a href="#firstCheck" role="tab" data-toggle="tab">初审</a></li>
+            <li><a href="#secondCheck" role="tab" data-toggle="tab">终审</a></li>
+            <li><a href="#totalCheck" role="tab" data-toggle="tab">审核汇总</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="firstCheck">
+                <table class="table">
+                    <tr>
+                        <th>序号</th>
+                        <th>时间</th>
+                        <th>所属招聘</th>
+                        <th>人员</th>
+                        <th>操作</th>
+                    </tr>
+                    <volist name="firstChecks" id="first">
+                        <tr>
+                            <td>{$first.FC_id}</td>
+                            <td>{$first.FC_time}</td>
+                            <td>{$first.AR_title}</td>
+                            <td>{$first.US_name}</td>
+                            <td>
+                                <a type="button" class="btn btn-primary"  href="__APP__/Admin/Verify/detailFirstInfo?id={$first.FC_id}">详情</a>
+                            </td>
+                        </tr>
+                    </volist>
+                </table>
+            </div>
+            <div class="tab-pane" id="secondCheck">
+                <table class="table">
+                    <tr>
+                        <th>序号</th>
+                        <th>时间</th>
+                        <th>所属招聘</th>
+                        <th>人员</th>
+                        <th>操作</th>
+                    </tr>
+                    <volist name="secondChecks" id="second">
+                        <tr>
+                            <td>{$second.EP_id}</td>
+                            <td>{$second.EP_time}</td>
+                            <td>{$second.AR_title}</td>
+                            <td>{$second.US_name}</td>
+                            <td><a type="button" class="btn btn-primary" href="__APP__/Admin/Verify/detailSecondInfo?id={$second.EP_id}">详情</button></a></td>
+                        </tr>
+                    </volist>
+                </table>
+            </div>
+
+            <div class="tab-pane" id="totalCheck">
+                <table class="table">
+                    <tr>
+                        <th>序号</th>
+                        <th>状态</th>
+                        <th>所属招聘</th>
+                        <th>人员</th>
+                        <th>操作</th>
+                    </tr>
+                    <volist name="totalCheck" id="total">
+                        <tr>
+                            <td>{$total.EP_id}</td>
+                            <td><?php if($total['EP_status'] == 2) echo('录用'); else echo('不录用');?></td>
+                            <td>{$total.AR_title}</td>
+                            <td>{$total.US_name}</td>
+                            <td><a type="button" class="btn btn-primary" href="__APP__/Admin/Verify/detailInfo?id={$total.EP_id}">详情</button></a></td>
+                        </tr>
+                    </volist>
+                </table>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <ul class="pager" style="margin: 0">
+                <li><a href="#">上一页</a></li>
+                <li><a href="#">下一页</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- footer -->
+<include file="./Application/Admin/View/Foot.html"/>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="__PUBLIC__/jquery-1.11.1.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="__PUBLIC__/Bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

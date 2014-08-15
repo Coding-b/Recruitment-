@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>后台管理</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="__PUBLIC__/Common/Css/Head&Foot.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="__PUBLIC__/Bootstrap/css/bootstrap.min.css">
+
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!-- header -->
+<include file="./Application/Admin/View/Head.html"/>
+<!-- content -->
+<div class="container" style="width: 980px;padding: 0">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            审核管理
+        </div>
+        <div class="departmentContent">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    职位信息
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <div class="row" style="margin: 10px 0">
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon">职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位</span>
+                                    <input type="text" class="form-control" placeholder="职位" value="{$information.AR_title}" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin: 10px 0">
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon">招聘人数</span>
+                                    <input type="text" class="form-control" placeholder="招聘人数" value="{$information.AR_numPerson}" readonly>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon">学历要求</span>
+                                    <input type="text" class="form-control" placeholder="学历要求" value="{$information.AR_education}" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin: 10px 0">
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon">年龄要求</span>
+                                    <input type="text" class="form-control" placeholder="年龄要求" value="{$information.AR_age}" readonly>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon">专业要求</span>
+                                    <input type="text" class="form-control" placeholder="专业要求" value="{$information.AR_major}" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin: 0 15px">
+                            <span class="content">{$information.AR_content}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="userContent">
+                <div class="panel-primary">
+                    <div class="panel-heading">
+                        用户信息
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <div class="userResume">{$information.EP_resume}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="feedback">
+                <volist name="feedbacks" id="feedback">
+                    <div class="panel-group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#123">
+                                        {$feedback.DP_name}反馈
+                                    </a>
+                                </h4>
+                            </div>
+                        </div>
+                        <div id="123" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">状态</span>
+                                            <input type="text" class="form-control" placeholder="状态" value="<?php if($feedback['FC_status'] == 1) echo('通过');else echo('不通过');?>" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin: 10px 0">
+                                    <div class="col-lg-10" style="padding: 0">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">反馈意见</span>
+                                            <textarea class="form-control" rows="5" readonly>{$feedback.FC_reason}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </volist>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer -->
+<include file="./Application/Admin/View/Foot.html"/>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="__PUBLIC__/jquery-1.11.1.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="__PUBLIC__/Bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="Content-Style-type" content="text/css"/>
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Common/Css/Head&Foot.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Common/Css/Article/articleStyle.css"/>
+    <style type="text/css">
+        .article_title{
+            width: 100%;
+            height: 60px;
+            padding: 0;
+            margin-bottom: 10px;
+            border-bottom: solid #c0c0c0 1px;
+        }
+        .article_title p{
+            text-align: center;
+        }
+        .title_title{
+            font-size: 22px;
+            color: #303030;
+            margin: 10px 0;
+            font-family: "微软雅黑";
+            line-height: 30px;
+        }
+        .title_time{
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<!-- header -->
+<include file="./Application/Home/View/Head.html"/>
+<!-- content -->
+<div id="content">
+    <div class="container">
+        <div class="breadCrumb">
+            <img src="__PUBLIC__/Common/Image/Article/breadCrumb.gif" alt=""/>
+            <h4>当前位置 > <a>公告公示</a></h4>
+        </div>
+
+        <div class="article">
+            <div class="nav_title">
+                <h4>公告公示</h4>
+            </div>
+            <div class="article_content">
+                <div class="article_title">
+                    <p class="title_title">{$article.AR_title}</p>
+                    <p class="title_time"><?php echo(substr($article['AR_createTime'] ,0,10));?></p>
+                </div>
+                <div class="article_body">
+                    {$article.AR_content}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer -->
+<include file="./Application/Home/View/Foot.html"/>
+</body>
+</html>

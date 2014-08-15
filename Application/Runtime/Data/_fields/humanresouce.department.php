@@ -1,0 +1,1 @@
+a:8:{i:0;s:5:"DP_id";i:1;s:7:"DP_name";i:2;s:6:"DP_psd";i:3;s:11:"DP_username";i:4;s:6:"DP_tel";i:5;s:8:"DP_level";s:3:"_pk";s:5:"DP_id";s:5:"_type";a:6:{s:5:"DP_id";s:7:"int(11)";s:7:"DP_name";s:11:"varchar(80)";s:6:"DP_psd";s:12:"varchar(100)";s:11:"DP_username";s:11:"varchar(30)";s:6:"DP_tel";s:11:"varchar(15)";s:8:"DP_level";s:7:"int(11)";}}

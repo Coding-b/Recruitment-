@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="Content-Style-type" content="text/css"/>
+    <title></title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="__PUBLIC__/Bootstrap/css/bootstrap.min.css">
+
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Common/Css/Head&Foot.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Common/Css/Article/articleStyle.css"/>
+    <style type="text/css">
+        .article_title{
+            width: 980px;
+            height: 60px;
+            padding: 0;
+            margin-bottom: 10px;
+            border-bottom: solid #c0c0c0 1px;
+        }
+        .article_title p{
+            text-align: center;
+        }
+        .title_title{
+            font-size: 22px;
+            color: #303030;
+            margin: 10px 0;
+            font-family: "微软雅黑";
+            line-height: 30px;
+        }
+        .title_time{
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<!-- header -->
+<include file="./Application/Home/View/Head.html"/>
+<!-- content -->
+<div id="content">
+    <div class="container">
+        <div class="breadCrumb">
+            <img src="__PUBLIC__/Common/Image/Article/breadCrumb.gif" alt=""/>
+            <h4>当前位置 > <a>填写简历</a></h4>
+        </div>
+
+        <div class="article">
+            <div class="nav_title">
+                <h4 style="margin: 0">填写简历</h4>
+            </div>
+            <form action="__APP__/Home/Position/addEmployment" method="post" class="form-horizontal">
+                <div class="article_content">
+                    <!-- 加载编辑器的容器 -->
+                    <script id="resume" name="resume" type="text/plain"></script>
+                </div>
+                <input type="hidden" name="AR_id" value="{$id}">
+                <div class="article_footer" style="margin: 10px 0">
+                    <button type="submit" class="btn btn-primary btn-lg">提交</button>
+                    <a class="btn btn-primary btn-lg" href="__APP__/Home/Position/positionCenter">取消</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- footer -->
+<include file="./Application/Home/View/Foot.html"/>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="__PUBLIC__/jquery-1.11.1.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="__PUBLIC__/Bootstrap/js/bootstrap.min.js"></script>
+
+<!-- 配置文件 -->
+<script type="text/javascript" src="__ROOT__/Editor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="__ROOT__/Editor/ueditor.all.js"></script>
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+    var ue = UE.getEditor('resume');
+</script>
+</body>
+</html>

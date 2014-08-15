@@ -1,0 +1,1 @@
+a:5:{i:0;s:5:"CL_id";i:1;s:7:"CL_dpid";i:2;s:7:"CL_arid";s:3:"_pk";s:5:"CL_id";s:5:"_type";a:3:{s:5:"CL_id";s:7:"int(11)";s:7:"CL_dpid";s:7:"int(11)";s:7:"CL_arid";s:7:"int(11)";}}

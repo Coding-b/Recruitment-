@@ -1,0 +1,44 @@
+body{
+    font: 12px Verdana, Arial, sans-serif, "Times New Roman", "宋体";
+}
+#content{
+    width: 100%;
+}
+    .container{
+        width:980px;
+        margin: 0 auto;
+        padding: 0;
+    }
+    .breadCrumb{
+        margin: 15px 0 15px 0;
+    }
+    .breadCrumb img{
+        float: left;
+        margin: 7px 5px 0 3px;
+    }
+    .breadCrumb h4{
+        margin-bottom: 10px;
+    }
+.article{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.article .nav_title{
+    width: 100%;
+    background: url("../../Image/Article/nav_title_bg.gif") repeat-x;
+    height: 37px;
+    font-size: 14px;
+    border: solid rgb(205,205,205) 1px;
+}
+.article .nav_title h4{
+    color: #000000;
+    padding: 9px 0 0 10px;
+}
+.article_content{
+    width: 100%;
+    min-height: 299px;
+    border: solid rgb(205,205,205) 1px;
+    background-color: rgb(245,245,245);
+    margin-bottom: 20px;
+}

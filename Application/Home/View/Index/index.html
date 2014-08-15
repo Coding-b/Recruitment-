@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>杭州电子科技大学信息工程学院网上招聘系统</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <link href="__PUBLIC__/Common/Css/index/style.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/Common/Css/Head&Foot.css" rel="stylesheet" type="text/css"/>
+    <!--[if lt IE 7]>
+    <link href="__PUBLIC__/Common/Css/index/ie_style.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+
+    <link rel="stylesheet" href="__PUBLIC__/Common/Css/index/nivo-slider.css" type="text/css"/>
+    <script type="text/javascript" src="__PUBLIC__/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Common/Js/index/jquery.nivo.slider.pack.js"></script>
+    <script type="text/javascript">
+        $(window).load(function() {
+            $('#slider').nivoSlider();
+        });
+    </script>
+
+</head>
+
+<body id="page1">
+<!-- header -->
+<include file="./Application/Home/View/Head.html"/>
+
+<!-- content -->
+<div id="content">
+    <div class="slide">
+        <div class="indent">
+            <div class="wrapper">
+                <div class="mainContent">
+                    <!-- .imageShow-box -->
+                    <div class="nivoSlider" id="slider">
+                        <volist name="slides" id="slide">
+                            <img src="{$slide.SL_addr}" alt=""/>
+                        </volist>
+                    </div>
+                    <!-- /.imageShow-box -->
+                    <h2><strong>公告</strong>公示</h2>
+                    <volist name="announcements" id="announcement">
+                        <div class="img-box">
+                            <img src="__PUBLIC__/Common/Image/index/icon1.jpg" alt="" />
+                            <strong>{$announcement.AR_title}</strong><br/>
+                            <span style=""><?php echo(mb_substr(strip_tags($announcement["AR_content"]),0,40,'utf-8'));?>……</span>
+                            <a href="__APP__/Home/Article/article?id={$announcement.AR_id}" class="link1">read more</a>
+                        </div>
+                    </volist>
+                </div>
+                <div class="aside right">
+                    <h3>最新职位</h3>
+                    <!-- .box -->
+                    <div class="box">
+                        <dl>
+                            <volist name="jobs" id="job">
+                                <dt>{$job.AR_createTime}</dt>
+                                <dd>
+                                    <strong>{$job.AR_title}</strong><br/>
+                                    <span><?php echo(mb_substr(strip_tags($job["AR_content"]),0,40,'utf-8'));?>……</span>
+                                    <a href="__APP__/Home/Position/positionCenter">
+                                        <img src="__PUBLIC__/Common/Image/index/arrow1.gif" alt="" />
+                                    </a>
+                                </dd>
+                            </volist>
+                        </dl>
+                        <a href="__APP__/Home/Position/positionCenter" class="link1">所 有 职 位</a>
+                    </div>
+                    <!-- /.box -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer -->
+<include file="./Application/Home/View/Foot.html"/>
+
+<script type="text/javascript">
+    $('#slider').nivoSlider({
+        animSpeed: 500,
+        pauseTime: 3000,
+        startSlide: 0,
+        directionNav: false,
+        controlNav: true,
+        controlNavThumbs: false
+    });
+</script>
+</body>
+</html>

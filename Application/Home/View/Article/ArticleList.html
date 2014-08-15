@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="Content-Style-type" content="text/css"/>
+    <title>公告公示</title>
+
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Common/Css/Head&Foot.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Common/Css/Article/style.css"/>
+</head>
+<body>
+<!-- header -->
+<include file="./Application/Home/View/Head.html"/>
+<!-- content -->
+<div id="content">
+    <div class="container">
+        <div class="breadCrumb">
+            <img src="__PUBLIC__/Common/Image/Article/breadCrumb.gif" alt=""/>
+            <h4>当前位置 > <a>公告公示</a></h4>
+        </div>
+
+        <div class="articleList">
+            <div class="nav_title">
+                <h4>公告公示</h4>
+            </div>
+            <div class="articleList_content">
+                <ul class="articleList_ul">
+                    <volist name="announcements" id="announcement">
+                        <li>
+                            <span class="article_name"><b>>></b>{$announcement.AR_title}</span>
+                            <span class="article_time"><?php echo(mb_substr($announcement['AR_createTime'],0,10));?></span>
+                            <p class="article_shortMessage">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <?php echo(mb_substr(strip_tags($announcement["AR_content"]),0,40,'utf-8'));?>……
+                            </p>
+                            <p class="article_more"><a href="__APP__/Home/Article/article?id={$announcement.AR_id}">阅读更多</a></p>
+                        </li>
+                    </volist>
+                </ul>
+                <div class="articleList_foot">
+                    <span style="padding-left:15px;line-height:25px;height:25px;margin-left: 40px;">
+                        共&nbsp;&nbsp;<span style="font-weight:bold;">{$totalNum}</span>&nbsp;&nbsp;条记录
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer -->
+<include file="./Application/Home/View/Foot.html"/>
+</body>
+</html>
